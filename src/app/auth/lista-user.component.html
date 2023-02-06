@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+<div class="container">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        
+        <th scope="col">Nombre</th>
+        <th scope="col">Nombre suario</th>
+        <th scope="col">Email</th>
+        <th scope="col" *ngIf="isAdmin">Editar</th>
+        <th scope="col" *ngIf="isAdmin">Borrar</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let us of usuarios">
+          <td>{{us.nombre}}</td>
+          <td>{{us.nombreUsuario}}</td>
+          <td>{{us.email}}</td>
+          
+          <td *ngIf="isAdmin"><button class="btn btn-outline-warning" routerLink="/editaruser/{{us.id}}"><i class="far fa-edit"></i> Editar</button></td>
+          <td *ngIf="isAdmin"><button class="btn btn-outline-danger" (click)="borrar(us.id)"><i class="far fa-trash-alt"></i> Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+    
+  
+  </div>
